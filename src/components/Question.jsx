@@ -1,5 +1,6 @@
 import "../styles/Question.css";
 import PropTypes from "prop-types";
+import { decode } from "html-entities";
 
 const Question = ({ triviaQuestion }) => {
   const { question, correct_answer, incorrect_answers } = triviaQuestion;
@@ -9,7 +10,7 @@ const Question = ({ triviaQuestion }) => {
 
   return (
     <div className="question-container">
-      <h2 className="question">{question}</h2>
+      <h2 className="question">{decode(question)}</h2>
       <div className="answers-container">
         {answers.map((answer, index) => (
           <button key={index} className="answer-button">
